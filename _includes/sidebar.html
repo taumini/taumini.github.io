@@ -19,6 +19,28 @@
     </script>
   </section>
 
+  <!-- Nav -->
+  <nav id="nav">
+    <ul>
+      <li><a href="{{ site.url }}">Home</a></li>
+      <li><a href="{{ site.baseurl }}/test.html">Test</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Recent Posts -->
+  <section class="box recent-posts">
+    <header>
+      <h2>Recent Posts</h2>
+    </header>
+    <ul>
+      {% for post in site.posts limit:6 %}
+        <li>{{ post.date | date: "%Y-%m-%d" }}: <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+
   <!-- Text -->
   <section class="box text-style1">
     <div class="inner">
