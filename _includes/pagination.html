@@ -1,0 +1,53 @@
+<div class="pagination">
+  {% if paginator.total_pages > 1 %}
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="button previous">上一页</a>
+    {% else %}
+      <a class="button previous">首页</a>
+    {% endif %}
+
+    <div class="pages">
+      {% if paginator.page <= 3 %}
+        {% for num in (1..paginator.total_pages) %}
+          {% if forloop.index <= 5 %}
+            {% if num != paginator.page %}
+              {% if num == 1 %}
+                <a href="/">1</a>
+              {% else %}
+                <a href="/page{{ num }}">{{ num }}</a>
+              {% endif %}
+            {% endif %}
+            <!--如果当前页码数和num相等，则不会出现连接地址，也不能点击，并且加上背景色样式-->
+            {% if num == paginator.page %}
+              <a class="active">{{ num }}</a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% assign index1 = paginator.page | plus:1 %}
+        {% assign index2 = paginator.page | plus:2 %}
+        {% if index1 > paginator.total_pages and paginator.total_pages != 4 %}
+          <a href="/page{{ paginator.page|plus:-4 }}">{{ paginator.page | plus:-4 }}</a>
+        {% endif %}
+        {% if index2 > paginator.total_pages %}
+          <a href="/page{{ paginator.page | plus:-3 }}">{{ paginator.page | plus:-3 }}</a>
+        {% endif %}
+        <a href="/page{{ paginator.page | plus:-2 }}">{{ paginator.page | plus:-2 }}</a>
+        <a href="/page{{ paginator.page | plus:-1 }}">{{ paginator.page | plus:-1 }}</a>
+        <a class="active">{{ paginator.page }}</a>
+        {% if index1 <= paginator.total_pages %}
+          <a href="/page{{ paginator.page | plus:1 }}">{{ paginator.page | plus:1 }}</a>
+        {% endif %}
+        {% if index2 <= paginator.total_pages %}
+          <a href="/page{{ paginator.page | plus:2 }}">{{ paginator.page | plus:2 }}</a>
+        {% endif %}
+      {% endif %}
+    </div>
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="button next">下一页</a>
+    {% else %}
+      <a class="button next">末页</a>
+    {% endif %}
+  {% endif %}
+</div>

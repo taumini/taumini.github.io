@@ -1,0 +1,16 @@
+title: TEST
+permalink: '/:title.html'
+url: https://taumini.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
+
+author: Taumini # add your name
+about-author: 我的个性很机车，我的手段很阴险。
+
+paginate: 6
+paginate_path: /page:num/
+
+markdown: kramdown
+
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap

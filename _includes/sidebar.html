@@ -1,0 +1,36 @@
+<div id="sidebar">
+
+  <!-- Logo -->
+  <h1 id="logo"><a href="{{ site.url }}">{{ site.title }}</a></h1>
+
+  <!-- Search -->
+  <section class="box search">
+    <form method="post" action="#">
+      <input type="text" class="text" name="search" id="search-input" placeholder="Search" />
+    </form>
+    <ul id="results-container"></ul>
+    <script src="{{ "/assets/js/search.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+    <script>
+      SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '/search.json'
+      })
+    </script>
+  </section>
+
+  <!-- Text -->
+  <section class="box text-style1">
+    <div class="inner">
+      <p>
+        <strong>Striped:</strong> A free and fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Copyright -->
+  <ul id="copyright">
+    <li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+  </ul>
+
+</div>
