@@ -1,5 +1,5 @@
 title: VIVA LA VIDA
-permalink: '/:title.html'
+permalink: '/:year-:month-:day-:title.html'
 url: https://bybl.ga # the base hostname & protocol for your site, e.g. http://example.com
 
 author: Taumini # add your name
